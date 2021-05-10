@@ -1,9 +1,16 @@
 \documentclass{article}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=magenta
+}
+
 \title{Annual Progress Report, Year 4}
 \author{Kate Storey-Fisher \\
 Thesis Committee: David W. Hogg, Jeremy Tinker, \\
-Michael Blanton, David Grier
+Michael Blanton, David Grier \\
+Slides available at \href{https://docs.google.com/presentation/d/1hqaPXNtvDq3Bnf1CegbAA840C_V2PaNjywn1dg2yrPM/edit?usp=sharing}{this URL}
 }
 
 \begin{document}
@@ -14,22 +21,78 @@ Michael Blanton, David Grier
 
 \subsection{Two-point statistics without bins}
 
+\hspace{\parindent} \textbf{Status:}
+We completed this project and submitted the paper presenting the method and implementation; it was published in February.
+This project is in collaboration with David W. Hogg.
+
+\textbf{Summary:}
+We developed the Continuous-Function Estimator (CFE), a continuous estimator for the two-point correlation function (2pcf), the most important statistic for cosmological inference.
+The CFE projects the data, the positions of large-scale structure tracers, onto a set of continuous basis functions.
+It computes the linear least-squares estimate of the 2pcf in the limit of a large random catalog, in terms of the cell occupation number.
+The CFE is a generalization of the Landy-Szalay estimator; for the choice of tophat basis functions, it reduces to Landy-Szalay.
+It obviates bias/variance issues with binning, requires fewer mock catalogs for covariance matrix estimation, and allows for direct estimation of the parameters of interest.
+
+We demonstrate the CFE with an application to inferring cosmological distance scales from the baryon acoustic oscillation (BAO) feature.
+We use a set of five basis functions adapted from the standard BAO fitting function, linearized around the parameter of interest, the scale dilation parameter.
+The CFE finds the best-fit linear combination of these basis functions, and directly outputs an estimate of the scale dilation parameter.
+We show that we accurately and precisely recover the value of this parameter, using a suite of lognormal mock catalogs.
+
+\textbf{Future:}
+We are currently working with an NYU physics undergraduate, Abby Williams, on an application of the CFE.
+We are investigating long-wavelength gradients in the large-scale structure.
+This project is motivated by observations of a hemispherical power asymmetry in the CMB, as well as a claim of anisotropy in the Type Ia supernovae distribution.
+Our goal is to use the CFE's ability to incorporate other properties of the tracer into its measurement of clustering; we will include a dependence on spatial position in addition to separation.
+We have generated mock catalogs with injected gradients, and have applied the CFE to recover these, as well as a standard least-squares method.
+Williams will present this work at the 238th meeting of the American Astronomical Society this June, and we will develop it into a journal publication.
+
+We have many other ideas of applications of the CFE that we hope to explore.
+These include reformulating standard binned analyses, such as anisotropic BAO analyses and the 2D correlation function to measure redshift space distortions, and using a Fourier basis to construct an estimator closely related to the power spectrum.
+We can also perform direct estimations of other cosmological quantities, such as the growth rate of structure or local primordial non-Gaussianity, or even fitting a full cosmological model directly with the CFE.
+We plan to collaborate with researchers performing state-of-the-art cosmological analyses and/or working with the current large surveys. 
+
+Finally, we hope to apply the CFE to make projections for upcoming NASA surveys (Euclid or WFIRST), in line with my NASA grant.
+This will require obtaining or generating the necessary mock catalogs, and perhaps collaborating with experts on cosmological analyses for these surveys.
+
 \subsection{Emulation of clustering statistics}
+
+\hspace{\parindent} \textbf{Status:}
+We are actively working on this research and have made significant progress.
+The main aspects of the project are completed but we are working through some difficulties, described below.
+This work is advised by Jeremy Tinker and in collaboration with the Aemulus project.
+
+\textbf{Summary:}
+The goal of this project is to extract more cosmological information from small-scale clustering by combining emulators of various clustering statistics.
+I have constructed Gaussian Process emulators of the monopole, the projected correlation function, the underdensity probability function, and the marked correlation function; we are interested in whether the latter two add useful information about the parameters of interest.
+In particular, we are investigating halo occupation distribution and assembly bias parameters in addition to cosmological parameters, and we expect these void and density statistics to be useful for these constraints.
+
+I constructed a covariance matrix for recovery tests using the Aemulus suite of simulators, and performed MCMC to obtain parameter constraints.
+The constraints are generally very good, and we are seeing that the void and density statistics add significant information to standard statistics.
+However, we are finding some spurious modes in the recovered posteriors.
+We have investigated whether these were due to a variety of issues, including poor MCMC chains, bad emulators, and a noisy covariance matrix, but have not found a clear culprit.
+
+\textbf{Future:}
+We will use the helpful feedback from my thesis committee to continue working on this issue.
+After we address this issue, we will write up a publication on our results.
+We next plan to apply this method to the latest survey data and obtain parameter constraints.
 
 \subsection{Anomaly detection in galaxy images}
 
 \subsection{Future projects}
 
+I am beginning to work on and think about future directions for my research; here I briefly present some of these potential new projects.
+
+\textbf{Cosmology with Graph Neural Networks}
+
 \section{Publications}
 
-Published:
+\textbf{Published:}
 \begin{itemize}
 \item Storey-Fisher, K. and Hogg, D.W., 2021. Two-point statistics without bins: A continuous-function generalization of the correlation function estimator for large-scale structure. The Astrophysical Journal, 909(2), p.220. arXiv:2011.01836
 \item Storey-Fisher, K., Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y. and Huang, S., 2020. Anomaly Detection in Astronomical Images with Generative Adversarial Networks. NeurIPS 2020 Machine Learning and the Physical Science Workshop, arXiv:2012.08082.
 \item Margalef-Bentabol, B., Huertas-Company, M., Charnock, T., Margalef-Bentabol, C., Bernardi, M., Dubois, Y., Storey-Fisher, K. and Zanisi, L., 2020. Detecting outliers in astronomical images with deep generative networks. Monthly Notices of the Royal Astronomical Society, 496(2), pp.2346-2361. arXiv:2003.08263
 \end{itemize}
 
-Submitted / In Preparation:
+\noindent \textbf{Submitted / In Preparation:}
 \begin{itemize}
 \item Storey-Fisher, K., Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y., Huang, S., and Prochaska, J.X. Anomaly Detection in Hyper Suprime-Cam Galaxy Images with Generative Adversarial Networks (Submitted to MNRAS)
 \item Appleby, S., Davé, R., Sorini, D., Storey-Fisher, K. and Smith, B., 2021. The Low Redshift Circumgalactic Medium in Simba. arXiv:2102.10126. (Submitted to MNRAS)
