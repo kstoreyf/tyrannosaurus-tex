@@ -3,7 +3,8 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    urlcolor=magenta
+    urlcolor=magenta,
+    linkcolor=magenta
 }
 
 \title{Annual Progress Report, Year 4}
@@ -17,12 +18,16 @@ Slides available at \href{https://docs.google.com/presentation/d/1hqaPXNtvDq3Bnf
 \maketitle
 
 
+This is my annual progress report for Year 4 of the NYU Physics PhD program. In \S\ref{sec:research}, I detail the status of each of my three research projects, as well as future research directions. In \S\ref{sec:deliverables}, I present the deliverables of my research this past year, including publications (\S\ref{sec:pubs}), grants (\S\ref{sec:grants}), and professional seminars (\S\ref{sec:seminars}).
+
 \section{Research Progress}
+\label{sec:research}
 
 \subsection{Two-point statistics without bins}
 
 \hspace{\parindent} \textbf{Status:}
 We completed this project and submitted the paper presenting the method and implementation; it was published in February.
+We are currently working on an additional publication exploring an application of the method.
 This project is in collaboration with David W. Hogg.
 
 \textbf{Summary:}
@@ -77,36 +82,88 @@ We next plan to apply this method to the latest survey data and obtain parameter
 
 \subsection{Anomaly detection in galaxy images}
 
+\hspace{\parindent} \textbf{Status:}
+We have just submitted the paper on this work to the Monthly Notices of the Royal Astronomical Society.
+An earlier short paper was presented at the 2020 NeurIPS Machine Learning for the Physical Sciences Workshop.
+This project began at the Kavli Summer Program in Astrophysics in 2019, and is advised by Professors Marc Huertas-Company and Alexie Leauthaud, along with other collaborators.
+
+\textbf{Summary:}
+The motivation for this project is the need for improved methods for detecting interesting outliers in astronomical data sets in the era of big data.
+We focus on anomaly detection in optical galaxy images from the Hyper Suprime-Cam survey (HSC).
+We apply a generative adversarial network (GAN) to this data, a deep learning model well-suited to this application due to its unsupervised nature and ability to learn the data distribution.
+Our GAN is able to generate new images that follow this data distribution, and we set it to reconstruct images in the training set; those it is not able to reconstruct well are anomalous with respect to the full data set.
+We developed additional approaches to distinguish scientifically interesting images from optical artifacts, involving a convolutional autoencoder and the UMAP clustering algorithm.
+
+With this approach, we successfully detected a multitude of interesting objects.
+These include galaxy mergers and tidal disruption features, extreme blue and purple star-forming regions, and unidentified bright blue sources in diffuse emission regions.
+We collaborated with observers to perform observational follow-up on objects from this last class, and performed a full analysis on one of these objects.
+We showed that it is likely an extremely blue, enriched HII region offset from a metal-poor, star-forming dwarf galaxy.
+
+\textbf{Future:}
+I am actively presenting this work at seminars and group meetings.
+I am also collaborating with the Galaxy Zoo project to set up an anomalous galaxy portal based on this work, in which citizen scientists rank the level of anomaly of images and aid in identifying scientifically interesting objects.
+We expect this to lead to a publication in which we compare the citizen scientist-based anomaly scores to that of the GAN.
+
+
 \subsection{Future projects}
 
 I am beginning to work on and think about future directions for my research; here I briefly present some of these potential new projects.
 
-\textbf{Cosmology with Graph Neural Networks}
+\textbf{Cosmology with Graph Neural Networks:} This project is in collaboration with David W. Hogg, Soledad Villar, and Weichi Yao.
+The motivation is that we believe the laws of physics, and thus many problems in cosmology, to be equivariant to coordinate transformations (rotations, translations, etc). 
+Rather than making ML methods learn these symmetries, we can impose them with graph neural networks (GNN).
+Weichi Yao has implemented an initial gauge-invariant GNN, and we are working on adapting and scaling it to various problems in cosmology. 
+We are currently exploring the application to predicting galaxy locations from dark-matter only simulations, using IllustrisTNG.
 
-\section{Publications}
+\textbf{Dark Standard Sirens with Large-Scale Structure:} This project is in the early idea stages, and will be with David W. Hogg.
+We are interested in the connection between the large-scale structure and dark standard sirens, gravitational wave (GW) sources for which we cannot obtain a redshift.
+These are the large majority of sources, as many are black hole--black hole mergers with no electromagnetic counterpart, or other types of mergers that do have a counterpart but we are unable to observe it.
+We can use the fact that the dark sirens should trace the large-scale structure to statistically infer the GW source locations, and apply this to measure the Hubble constant and make measurements related to alternate gravity models, as well as investigate the nature and origin of the GW sources themselves.
+We are looking into statistical methods that capture more information in this sparse dataset to improve this inference. 
+One idea is to use a recently proposed set of summary statistics, the k-Nearest Neighbor Cumulative Distribution Functions (kNN-CDF), which are adept at extracting information from sparse data.
+
+
+\section{Deliverables}
+\label{sec:deliverables}
+
+\subsection{Publications}
+\label{sec:pubs}
 
 \textbf{Published:}
 \begin{itemize}
-\item Storey-Fisher, K. and Hogg, D.W., 2021. Two-point statistics without bins: A continuous-function generalization of the correlation function estimator for large-scale structure. The Astrophysical Journal, 909(2), p.220. arXiv:2011.01836
-\item Storey-Fisher, K., Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y. and Huang, S., 2020. Anomaly Detection in Astronomical Images with Generative Adversarial Networks. NeurIPS 2020 Machine Learning and the Physical Science Workshop, arXiv:2012.08082.
-\item Margalef-Bentabol, B., Huertas-Company, M., Charnock, T., Margalef-Bentabol, C., Bernardi, M., Dubois, Y., Storey-Fisher, K. and Zanisi, L., 2020. Detecting outliers in astronomical images with deep generative networks. Monthly Notices of the Royal Astronomical Society, 496(2), pp.2346-2361. arXiv:2003.08263
+\item \textbf{Storey-Fisher, K.} and Hogg, D.W., 2021. Two-point statistics without bins: A continuous-function generalization of the correlation function estimator for large-scale structure. The Astrophysical Journal, 909(2), p.220. arXiv:2011.01836
+\item \textbf{Storey-Fisher, K.}, Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y. and Huang, S., 2020. Anomaly Detection in Astronomical Images with Generative Adversarial Networks. NeurIPS 2020 Machine Learning and the Physical Science Workshop, arXiv:2012.08082.
+\item Margalef-Bentabol, B., Huertas-Company, M., Charnock, T., Margalef-Bentabol, C., Bernardi, M., Dubois, Y.,\textbf{ Storey-Fisher, K.} and Zanisi, L., 2020. Detecting outliers in astronomical images with deep generative networks. Monthly Notices of the Royal Astronomical Society, 496(2), pp.2346-2361. arXiv:2003.08263
 \end{itemize}
 
 \noindent \textbf{Submitted / In Preparation:}
 \begin{itemize}
-\item Storey-Fisher, K., Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y., Huang, S., and Prochaska, J.X. Anomaly Detection in Hyper Suprime-Cam Galaxy Images with Generative Adversarial Networks (Submitted to MNRAS)
-\item Appleby, S., Davé, R., Sorini, D., Storey-Fisher, K. and Smith, B., 2021. The Low Redshift Circumgalactic Medium in Simba. arXiv:2102.10126. (Submitted to MNRAS)
-\item Zhai, Z., Tinker, J., Banerjee, A., Becker, M.R., DeRose, J., Guo, H., Mao, Y.Y., McClintock, T., McLaughlin, S.,  Storey-Fisher, K., Rozo, E., Wechsler, R. The Aemulus Project VI: Cosmological constraint from small scale clustering of BOSS galaxies (In prep.)
-\item Storey-Fisher, K., Tinker, J., Zhai, Z., Banerjee, A., Becker, M.R., DeRose, J., Guo, H., Mao, Y.Y., McClintock, T., McLaughlin, S., Rozo, E., Wechsler, R. The Aemulus Project VII: Emulation of Void Statistics and the Marked Correlation Function (In prep.)
+\item \textbf{Storey-Fisher, K.}, Huertas-Company, M., Ramachandra, N., Lanusse, F., Leauthaud, A., Luo, Y., Huang, S., and Prochaska, J.X. Anomaly Detection in Hyper Suprime-Cam Galaxy Images with Generative Adversarial Networks (Submitted to MNRAS)
+\item Appleby, S., Davé, R., Sorini, D., \textbf{Storey-Fisher, K.} and Smith, B., 2021. The Low Redshift Circumgalactic Medium in Simba. arXiv:2102.10126. (Submitted to MNRAS)
+\item Zhai, Z., Tinker, J., Banerjee, A., Becker, M.R., DeRose, J., Guo, H., Mao, Y.Y., McClintock, T., McLaughlin, S.,  \textbf{Storey-Fisher, K.}, Rozo, E., Wechsler, R. The Aemulus Project VI: Cosmological constraint from small scale clustering of BOSS galaxies (In prep.)
+\item \textbf{Storey-Fisher, K.}, Tinker, J., Zhai, Z., Banerjee, A., Becker, M.R., DeRose, J., Guo, H., Mao, Y.Y., McClintock, T., McLaughlin, S., Rozo, E., Wechsler, R. The Aemulus Project VII: Emulation of Void Statistics and the Marked Correlation Function (In prep.)
 \end{itemize}
 
-\section{Grants}
+\subsection{Grants}
+\label{sec:grants}
 
 \begin{itemize}
-\item James Arthur Graduate Award Fellowship, June--August 2020, \$8,750
-\item NASA Future Investigators in Earth and Space Science Technology (FINESST), September 2020--August 2023, \$135,000
+\item James Arthur Graduate Award Fellowship, NYU Department of Physics, June--August 2020, \$8,750
+\item NASA Future Investigators in Earth and Space Science Technology (FINESST), Award 80NSSC20K1545, September 2020--August 2023, \$135,000
 \end{itemize}
 
-\section{Seminars}
+\subsection{Seminars}
+\label{sec:seminars}
+
+\begin{itemize}
+\item 2020-09-09: ML Club (Detecting Anomalous Galaxies with GANS)
+\item 2020-11-16: Princeton/IAS Cosmology Lunch Talk (Binning is Sinning)
+\item 2020-12-07: NeurIPS Tutorial with D.W.H. (Machine Learning for Astrophysics and Astrophysics Problems for Machine Learning)
+\item 2020-12-10: Center for Computational Astrophysics Lunch Talk (Binning is Sinning)
+\item 2021-01-29: German Center for Cosmological Lensing Seminar (Binning is Sinning)
+\item 2021-04-07/08: ML in Astronomy Meeting, Western Sydney University (Detecting Anomalous Galaxies with GANS)
+\item 2021-05-12 (upcoming): Daniel Eisenstein Group Meeting at Harvard CfA (Detecting Anomalous Galaxies with GANS)
+\item 2021-07-08 (upcoming): DESI AI Seminar (Detecting Anomalous Galaxies with GANS)
+\end{itemize}
 
 \end{document}
